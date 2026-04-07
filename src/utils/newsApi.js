@@ -1,8 +1,8 @@
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
-const BASE_URL =
-  import.meta.env.MODE === 'production'
-    ? 'https://nomoreparties.co/news/v2/everything'
-    : 'https://newsapi.org/v2/everything';
+const isProduction = import.meta.env.MODE === 'production';
+const BASE_URL = isProduction
+  ? 'https://nomoreparties.co/news/v2/everything'
+  : 'https://newsapi.org/v2/everything';
 
 const formatDate = (dateStr) => {
   if (!dateStr) return '';
@@ -24,7 +24,8 @@ const getDateRange = () => {
 
 export const searchNews = (keyword) => {
   const { from, to } = getDateRange();
-  const url = `${BASE_URL}?q=${encodeURIComponent(keyword)}&from=${from}&to=${to}&pageSize=100&apiKey=${API_KEY}`;
+  const apiKeyParam = isProduction ? '' : `&apiKey=${API_KEY}`;
+  const url = `${BASE_URL}?q=${encodeURIComponent(keyword)}&from=${from}&to=${to}&pageSize=100${apiKeyParam}`;
 
   return fetch(url)
     .then((res) => {
