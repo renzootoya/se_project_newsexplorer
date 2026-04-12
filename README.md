@@ -8,7 +8,7 @@ NewsExplorer is a full-stack web application that allows users to search for new
 
 ## Project Pitch Video
 
-Check out [this video](ADD_LOOM_LINK_HERE), where I describe my project and some challenges I faced while building it.
+Check out [this video](https://www.loom.com/share/e8b42b1a03444e1c9fb9f12807115fdf), where I describe my project and some challenges I faced while building it.
 
 ---
 
