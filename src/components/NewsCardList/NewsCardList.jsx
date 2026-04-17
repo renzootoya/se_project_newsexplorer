@@ -1,14 +1,12 @@
 import NewsCard from '../NewsCard/NewsCard';
 import './NewsCardList.css';
 
-const CARDS_PER_PAGE = 3;
-
 const NewsCardList = ({ articles, savedArticles, onSave, onDelete, visibleCount, onShowMore }) => {
   const visible = articles.slice(0, visibleCount);
   const hasMore = articles.length > visibleCount;
 
   const isSaved = (article) =>
-    savedArticles.some((saved) => saved.url === article.url);
+    savedArticles.some((saved) => saved.link === article.url);
 
   return (
     <section className="news-card-list">

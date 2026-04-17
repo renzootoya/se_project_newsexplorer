@@ -1,27 +1,34 @@
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import './NewsCard.css';
 
-const NewsCard = ({ article, onSave, onDelete, isSaved, keyword, showKeyword }) => {
+const NewsCard = ({ article, onSave, onDelete, isSaved, keyword, showKeyword, variant }) => {
   const { isLoggedIn } = useCurrentUser();
+  const isSavedPage = variant === 'saved';
 
-  const handleBookmarkClick = () => {
-    if (!isLoggedIn) return;
-    if (isSaved) {
+  const handleActionClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (isSavedPage) {
       onDelete(article);
     } else {
-      onSave(article);
+      if (!isLoggedIn) return;
+      if (isSaved) {
+        onDelete(article);
+      } else {
+        onSave(article);
+      }
     }
   };
 
+  const cardUrl = article.url || article.link || '#';
+
   return (
     <li className="news-card">
-      <a href={article.url} target="_blank" rel="noreferrer" className="news-card__link">
-        {article.urlToImage && (
-          <img
-            className="news-card__image"
-            src={article.urlToImage}
-            alt={article.title}
-          />
+      <a href={cardUrl} target="_blank" rel="noreferrer" className="news-card__link">
+        {article.urlToImage ? (
+          <img className="news-card__image" src={article.urlToImage} alt={article.title} />
+        ) : (
+          <div className="news-card__image news-card__image_placeholder" />
         )}
         <div className="news-card__content">
           <p className="news-card__date">{article.formattedDate || ''}</p>
@@ -35,15 +42,23 @@ const NewsCard = ({ article, onSave, onDelete, isSaved, keyword, showKeyword }) 
         {showKeyword && keyword && (
           <span className="news-card__keyword">{keyword}</span>
         )}
-        <button
-          className={`news-card__bookmark ${isSaved ? 'news-card__bookmark_active' : ''} ${!isLoggedIn ? 'news-card__bookmark_disabled' : ''}`}
-          onClick={handleBookmarkClick}
-          title={!isLoggedIn ? 'Sign in to save articles' : isSaved ? 'Remove from saved' : 'Save article'}
-        >
-          {!isLoggedIn && (
-            <span className="news-card__tooltip">Sign in to save articles</span>
-          )}
-        </button>
+        {isSavedPage ? (
+          <button
+            className="news-card__delete"
+            onClick={handleActionClick}
+            title="Remove from saved"
+          />
+        ) : (
+          <button
+            className={`news-card__bookmark ${isSaved ? 'news-card__bookmark_active' : ''} ${!isLoggedIn ? 'news-card__bookmark_disabled' : ''}`}
+            onClick={handleActionClick}
+            title={!isLoggedIn ? 'Sign in to save articles' : isSaved ? 'Remove from saved' : 'Save article'}
+          >
+            {!isLoggedIn && (
+              <span className="news-card__tooltip">Sign in to save articles</span>
+            )}
+          </button>
+        )}
       </div>
     </li>
   );

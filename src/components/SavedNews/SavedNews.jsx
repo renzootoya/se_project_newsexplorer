@@ -36,6 +36,7 @@ const SavedNews = ({ savedArticles, onDelete, onLogout }) => {
                   url: article.link,
                   source: { name: article.source },
                 }}
+                variant="saved"
                 isSaved={true}
                 onDelete={() => onDelete(article)}
                 showKeyword={true}

@@ -10,6 +10,7 @@
 }
 
 .header_theme_dark {
+  background-color: #fff;
   background-image: none;
   min-height: auto;
 }
@@ -66,6 +67,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   justify-content: center;
   padding: 80px 0;
 }
@@ -84,7 +87,7 @@
   color: rgba(255, 255, 255, 0.88);
   font-size: 18px;
   line-height: 28px;
-  margin: 0 0 88px;
+  margin: 0 0 48px;
   max-width: 608px;
 }
 
@@ -95,8 +98,16 @@
 }
 
 @media (max-width: 768px) {
+  .header {
+    min-height: 400px;
+  }
+
   .header__content {
     padding: 0 16px;
+  }
+
+  .header__hero {
+    padding: 40px 0;
   }
 
   .header__title {
@@ -107,5 +118,6 @@
   .header__subtitle {
     font-size: 14px;
     line-height: 20px;
+    margin-bottom: 32px;
   }
 }
