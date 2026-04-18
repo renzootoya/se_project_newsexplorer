@@ -90,7 +90,7 @@ function App() {
       keyword: currentKeyword,
       title: article.title,
       text: article.description || '',
-      date: article.publishedAt || '',
+      date: article.formattedDate || article.publishedAt || '',
       source: article.source?.name || '',
       link: article.url,
       image: article.urlToImage || '',
@@ -102,7 +102,9 @@ function App() {
 
   const handleDeleteArticle = (article) => {
     const token = localStorage.getItem('jwt');
-    const saved = savedArticles.find((s) => s.link === article.url || s.url === article.url);
+    const saved = article._id
+      ? savedArticles.find((s) => s._id === article._id)
+      : savedArticles.find((s) => s.link === (article.url || article.link));
     if (!saved) return;
     deleteArticle(token, saved._id)
       .then(() => setSavedArticles((prev) => prev.filter((a) => a._id !== saved._id)))

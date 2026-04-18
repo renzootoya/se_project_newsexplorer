@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__content">
         <p className="footer__copyright">
-          &copy; 2024 Supersite, Powered by News API
+          &copy; 2024 NewsExplorer, Powered by News API
         </p>
         <nav className="footer__nav">
           <Link to="/" className="footer__link">Home</Link>
