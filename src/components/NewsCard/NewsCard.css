@@ -81,10 +81,6 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
 }
 
 /* Bookmark button */
@@ -144,8 +140,11 @@
   background-color: #e8e8e8;
 }
 
-/* Keyword badge */
+/* Keyword badge — top-left of card image */
 .news-card__keyword {
+  position: absolute;
+  top: 16px;
+  left: 16px;
   background: #fff;
   border-radius: 8px;
   padding: 8px 22px;

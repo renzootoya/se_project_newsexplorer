@@ -38,10 +38,11 @@ const NewsCard = ({ article, onSave, onDelete, isSaved, keyword, showKeyword, va
         </div>
       </a>
 
+      {showKeyword && keyword && (
+        <span className="news-card__keyword">{keyword}</span>
+      )}
+
       <div className="news-card__actions">
-        {showKeyword && keyword && (
-          <span className="news-card__keyword">{keyword}</span>
-        )}
         {isSavedPage ? (
           <button
             className="news-card__delete"

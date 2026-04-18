@@ -57,18 +57,22 @@
 @media (max-width: 768px) {
   .search-form__container {
     flex-direction: column;
-    border-radius: 8px;
+    background: transparent;
+    border-radius: 0;
     height: auto;
+    gap: 16px;
   }
 
   .search-form__input {
     height: 56px;
-    border-radius: 8px;
+    border-radius: 40px;
+    background: #fff;
+    padding: 0 24px;
   }
 
   .search-form__btn {
     height: 56px;
-    border-radius: 8px;
+    border-radius: 40px;
     padding: 0;
   }
 }
