@@ -19,7 +19,8 @@
   display: none;
 }
 
-.header__logo_dark {
+.header__logo_dark,
+.header_theme_dark .header__logo {
   color: #1a1b22;
 }
 

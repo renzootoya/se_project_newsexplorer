@@ -1,4 +1,7 @@
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import bookmarkIcon from '../../assets/bookmark.svg';
+import bookmarkActiveIcon from '../../assets/bookmark-active.svg';
+import trashIcon from '../../assets/trash.svg';
 import './NewsCard.css';
 
 const NewsCard = ({ article, onSave, onDelete, isSaved, keyword, showKeyword, variant }) => {
@@ -48,13 +51,16 @@ const NewsCard = ({ article, onSave, onDelete, isSaved, keyword, showKeyword, va
             className="news-card__delete"
             onClick={handleActionClick}
             title="Remove from saved"
-          />
+          >
+            <img src={trashIcon} alt="Delete" />
+          </button>
         ) : (
           <button
-            className={`news-card__bookmark ${isSaved ? 'news-card__bookmark_active' : ''} ${!isLoggedIn ? 'news-card__bookmark_disabled' : ''}`}
+            className={`news-card__bookmark ${!isLoggedIn ? 'news-card__bookmark_disabled' : ''}`}
             onClick={handleActionClick}
             title={!isLoggedIn ? 'Sign in to save articles' : isSaved ? 'Remove from saved' : 'Save article'}
           >
+            <img src={isSaved ? bookmarkActiveIcon : bookmarkIcon} alt="Bookmark" />
             {!isLoggedIn && (
               <span className="news-card__tooltip">Sign in to save articles</span>
             )}
