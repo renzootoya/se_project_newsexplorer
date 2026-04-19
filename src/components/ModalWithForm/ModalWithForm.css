@@ -1,0 +1,136 @@
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_open {
+  display: flex;
+}
+
+.modal__container {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px;
+  width: 430px;
+  position: relative;
+}
+
+.modal__close {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  background: transparent url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10L30 30M30 10L10 30' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/40px no-repeat;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal__title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #1a1b22;
+  margin: 0 0 22px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.modal__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #2f71e5;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.modal__input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0 0 11px;
+  font-size: 14px;
+  color: #1a1b22;
+  outline: none;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+
+.modal__input::placeholder {
+  color: #b6bcbf;
+}
+
+.modal__input_error {
+  border-bottom-color: #ff0000;
+}
+
+.modal__error {
+  font-size: 12px;
+  color: #ff0000;
+  margin: -24px 0 20px;
+}
+
+.modal__submit {
+  width: 100%;
+  padding: 18px;
+  background: #2f71e5;
+  border: none;
+  border-radius: 100px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.modal__submit:hover {
+  background: #347eff;
+}
+
+.modal__submit:disabled {
+  background: #e8e8e8;
+  color: #b6bcbf;
+  cursor: default;
+}
+
+.modal__alt {
+  text-align: center;
+  font-size: 14px;
+  color: #1a1b22;
+  margin: 14px 0 0;
+}
+
+.modal__alt-link {
+  background: none;
+  border: none;
+  color: #2f71e5;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal__alt-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .modal__container {
+    width: calc(100% - 32px);
+    padding: 28px 16px;
+  }
+
+  .modal__close {
+    top: -48px;
+    right: 0;
+  }
+}

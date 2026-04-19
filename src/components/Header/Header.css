@@ -1,0 +1,124 @@
+.header {
+  background-color: #1a1b22;
+  background-image: url('../../assets/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 576px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.header_theme_dark {
+  background-color: #fff;
+  background-image: none;
+  min-height: auto;
+}
+
+.header_theme_dark::before {
+  display: none;
+}
+
+.header__logo_dark,
+.header_theme_dark .header__logo {
+  color: #1a1b22;
+}
+
+.header_theme_dark .header__top {
+  border-bottom: 1px solid rgba(26, 27, 34, 0.2);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 27, 34, 0.64);
+}
+
+.header__content {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 104px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  height: 80px;
+}
+
+.header__logo {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: 'Roboto Slab', serif;
+  letter-spacing: -0.04em;
+}
+
+.header__hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.header__title {
+  color: #fff;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 64px;
+  font-family: 'Roboto Slab', serif;
+  margin: 0 0 32px;
+  max-width: 608px;
+}
+
+.header__subtitle {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0 0 48px;
+  max-width: 608px;
+}
+
+@media (max-width: 1024px) {
+  .header__content {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    min-height: 400px;
+  }
+
+  .header__content {
+    padding: 0 16px;
+  }
+
+  .header__hero {
+    padding: 40px 0;
+  }
+
+  .header__title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .header__subtitle {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 32px;
+  }
+}
